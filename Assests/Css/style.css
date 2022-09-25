@@ -1,0 +1,112 @@
+/* Added font-family,aligned-text:center, background color & padding to the body */
+body {
+    text-align: center;
+    font-family: poppins;
+    background-color: rgb(247, 247, 247);
+    padding: 0px 50px 0px 50px;
+}
+
+/*Added padding, color, margin,background color, border-radius & hover effect*/
+button {
+    padding: 8px 15px 8px 15px;
+    color: white;
+    margin: 10px;
+    border:none;
+    border-radius: 3px;
+    background-color: rgb(45, 84, 255);
+}
+
+button:hover {
+    background-color:rgba(45, 83, 255, 0.938);
+    cursor: pointer;
+}
+
+/*Added display as flex and aligned items*/
+#score-countdown {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*Added flex layout and font size*/
+h2#countdown {
+    display: flex;
+    justify-content: end;
+    font-size: 20px;
+    align-content: flex-start;
+}
+
+/*Added display prop and align items */
+#quiz-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/*Added width to button under quiz container and applied margin and justify content*/
+.quiz-container button {
+    width: 20%;;
+    justify-content: center;
+    margin: 10px;
+}
+
+/*added padding tot the input value and a bolder*/
+input {
+    padding: 6px 10px 6px 10px;
+    border: solid .5px;
+}
+
+/*Applied media  queries for 541px-900px screen to mae it responsive on tablets*/
+
+@media (max-width: 900px){
+
+    body {
+        padding: 0px 20px 0px 20px;
+        
+   }
+
+
+    #quiz-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: center;
+        
+    }
+
+    .quiz-container button {
+        width:97%;
+    }
+}
+
+/*Applied media  queries for max 540px screen to make it responsive on mobile*/
+@media (max-width: 540px){
+
+    body {
+         padding: 0px 8px 0px 8px;
+    }
+
+    #score-countdown {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #quiz-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: center;
+        
+    }
+
+    .quiz-container button {
+        width:95%;
+    }
+}
