@@ -27,7 +27,7 @@ by following all the instructions I am able to done this task and in this task I
 
 
 ## Link of the Web Page: 
-https://anmolgupta313.github.io/Password-Generator-Challenge/
+https://anmolgupta313.github.io/Web-ApI-Quiz-Chaallenge/
 
 ## License
 

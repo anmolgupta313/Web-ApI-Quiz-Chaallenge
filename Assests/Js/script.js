@@ -109,16 +109,18 @@ var renderQuestion = function (question) {
     questionContainer.appendChild(answerD);
 }
 
+// Created variables
 var currentQuestionIndex = 0;
 var userScore = 0;
 var correctAnswer = questions[currentQuestionIndex].correct;
 var clickViewScores = document.getElementById("view-score");
 
+//Created a method for targeting a correct answer
 var answerClick = function(event) {
     event.preventDefault();
     var userAnswer = event.target.textContent;
     correctAnswer = questions[currentQuestionIndex].correct;
-    // determine if answer is wrong or right
+    // determine if answer is wrong or right and if wrong then decrease time by 10s
     var answerDetermination = document.querySelector("#answer-determination");
     if (userAnswer !== correctAnswer) {
         adjustTime(-10);
@@ -139,6 +141,7 @@ var answerClick = function(event) {
     }
 };
 
+//created a method and called a function 
 var quiz = function (event) {
     event.preventDefault();
     resetDisplay();
@@ -149,6 +152,9 @@ function resetDisplay() {
     questionContainer.innerHTML="";
     document.querySelector("#intro-page").style.display = "none";
 }
+
+//Defining a function to store score in local storage
+
 function highScores() {
     let data = localStorage.getItem("object");
     let getData = JSON.parse(data);
@@ -156,11 +162,13 @@ function highScores() {
     let score = getData.score;
     questionContainer.innerHTML = "";
     questionContainer.innerHTML = name + " " + score;
+    
 }
 clickViewScores.addEventListener("click", () => {
     highScores();
 })
 
+//Created a function to create elements lie heading, buttons, input  
 var initials; 
 function endQuizPage() {
     resetDisplay();
@@ -189,6 +197,10 @@ function endQuizPage() {
             let data = JSON.stringify({ "name":input[0], "score":input[1]})
             localStorage.setItem("object", data)
         }
+
+        endPage.innerHTML="Thank You For Playing. Beat Your High Score and Play Again.";
+
+
         storeInitials(initialBox.value, userScore);
 
         var playAgain = document.createElement("button");
@@ -199,18 +211,38 @@ function endQuizPage() {
             location.reload();
         })
 
+        //will clear innput field after submission
         document.querySelector("input").value = "";
-    });
 
-    
+        //hiding input and submit button after submission of initilas
+        document.querySelector("input").style.display="none";
+        submitInitialBtn.setAttribute("style", "display:none;");
 
+        //Created a button and added an event listener
+        var viewHighScore= document.createElement("button");
+        viewHighScore.textContent="View High Score";
+        blank.appendChild(viewHighScore);
+
+        viewHighScore.addEventListener("click",function(){
+            highScores();
+     
+        })
+
+        //Created  a variable and selected a a div using query selector and set  the display to none
+        var scoreCountDiv= document.querySelector("#score-countdown");
+    scoreCountDiv.setAttribute("style", "display:none;");
+
+    //Added an event listener and calling a function on submit
     initialBox.addEventListener("submit", endQuizPage);
-    
+        
+    });
 };
+
 function renderInitials() {
     submitInitialBtn.addEventListener('click', function(event) {
         event.preventDefault;
 }
 )};
 
+//Added an eventlistener to call a function on a click
 clickStart.addEventListener('click', quiz);
