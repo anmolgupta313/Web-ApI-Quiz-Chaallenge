@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,26 @@
     <title> Code Quiz</title>
     <link rel="stylesheet" href="./Assests/Css/style.css">
 </head>
+
 <body>
     <div id="score-countdown">
-    <div id="high-score">
-        <button class="view-score" id="view-score">View high score</button>
+        <div id="high-score">
+            <button class="view-score" id="view-score">View high score</button>
+        </div>
+        <div>
+            <h2 id="countdown"></h2>
+        </div>
     </div>
-    <div>
-        <h2 id="countdown"></h2>
-    </div>
-</div>
     <div id="intro-page">
-    <h1>Coding Quiz Challenge</h1>
-    <p>Try to answer the following code-related questions within the time limit.
-        Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-    <button id="start">Start Quiz</button>
+        <h1>Coding Quiz Challenge</h1>
+        <p>Try to answer the following code-related questions within the time limit.
+            Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+        <button id="start">Start Quiz</button>
     </div>
-    
+
     <div class="quiz-container" id="quiz-container"></div>
     <div id="answer-determination"></div>
     <script src="./Assests/Js/script.js"></script>
 </body>
+
 </html>

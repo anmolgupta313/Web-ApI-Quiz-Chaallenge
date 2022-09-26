@@ -116,7 +116,7 @@ var correctAnswer = questions[currentQuestionIndex].correct;
 var clickViewScores = document.getElementById("view-score");
 
 //Created a method for targeting a correct answer
-var answerClick = function(event) {
+var answerClick = function (event) {
     event.preventDefault();
     var userAnswer = event.target.textContent;
     correctAnswer = questions[currentQuestionIndex].correct;
@@ -128,7 +128,7 @@ var answerClick = function(event) {
         currentQuestionIndex++;
         if (currentQuestionIndex >= questions.length) {
             endQuizPage();
-        } else {renderQuestion(questions[currentQuestionIndex])};
+        } else { renderQuestion(questions[currentQuestionIndex]) };
 
     }
     else if (userAnswer === correctAnswer) {
@@ -137,7 +137,7 @@ var answerClick = function(event) {
         userScore++;
         if (currentQuestionIndex >= questions.length) {
             endQuizPage();
-        } else {renderQuestion(questions[currentQuestionIndex])};
+        } else { renderQuestion(questions[currentQuestionIndex]) };
     }
 };
 
@@ -149,7 +149,7 @@ var quiz = function (event) {
 };
 
 function resetDisplay() {
-    questionContainer.innerHTML="";
+    questionContainer.innerHTML = "";
     document.querySelector("#intro-page").style.display = "none";
 }
 
@@ -162,14 +162,14 @@ function highScores() {
     let score = getData.score;
     questionContainer.innerHTML = "";
     questionContainer.innerHTML = name + " " + score;
-    
+
 }
 clickViewScores.addEventListener("click", () => {
     highScores();
 })
 
 //Created a function to create elements lie heading, buttons, input  
-var initials; 
+var initials;
 function endQuizPage() {
     resetDisplay();
     timerEl.textContent = "";
@@ -190,21 +190,21 @@ function endQuizPage() {
     blank.appendChild(submitInitialBtn);
 
     submitInitialBtn.addEventListener("click", () => {
-        
+
         if (initialBox.value.length === 0) return false;
 
         let storeInitials = (...input) => {
-            let data = JSON.stringify({ "name":input[0], "score":input[1]})
+            let data = JSON.stringify({ "name": input[0], "score": input[1] })
             localStorage.setItem("object", data)
         }
 
-        endPage.innerHTML="Thank You For Playing. Beat Your High Score and Play Again.";
+        endPage.innerHTML = "Thank You For Playing. Beat Your High Score and Play Again.";
 
 
         storeInitials(initialBox.value, userScore);
 
         var playAgain = document.createElement("button");
-        playAgain.textContent= "Play Again!";
+        playAgain.textContent = "Play Again!";
         blank.appendChild(playAgain);
 
         playAgain.addEventListener("click", () => {
@@ -215,34 +215,35 @@ function endQuizPage() {
         document.querySelector("input").value = "";
 
         //hiding input and submit button after submission of initilas
-        document.querySelector("input").style.display="none";
+        document.querySelector("input").style.display = "none";
         submitInitialBtn.setAttribute("style", "display:none;");
 
         //Created a button and added an event listener
-        var viewHighScore= document.createElement("button");
-        viewHighScore.textContent="View High Score";
+        var viewHighScore = document.createElement("button");
+        viewHighScore.textContent = "View High Score";
         blank.appendChild(viewHighScore);
 
-        viewHighScore.addEventListener("click",function(){
+        viewHighScore.addEventListener("click", function () {
             highScores();
-     
+
         })
 
         //Created  a variable and selected a a div using query selector and set  the display to none
-        var scoreCountDiv= document.querySelector("#score-countdown");
-    scoreCountDiv.setAttribute("style", "display:none;");
+        var scoreCountDiv = document.querySelector("#score-countdown");
+        scoreCountDiv.setAttribute("style", "display:none;");
 
-    //Added an event listener and calling a function on submit
-    initialBox.addEventListener("submit", endQuizPage);
-        
+        //Added an event listener and calling a function on submit
+        initialBox.addEventListener("submit", endQuizPage);
+
     });
 };
 
 function renderInitials() {
-    submitInitialBtn.addEventListener('click', function(event) {
+    submitInitialBtn.addEventListener('click', function (event) {
         event.preventDefault;
-}
-)};
+    }
+    )
+};
 
 //Added an eventlistener to call a function on a click
 clickStart.addEventListener('click', quiz);
