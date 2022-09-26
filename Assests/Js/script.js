@@ -215,7 +215,7 @@ function endQuizPage() {
         document.querySelector("input").value = "";
 
         //hiding input and submit button after submission of initilas
-        document.querySelector("input").style.display = "none";
+        initialBox.setAttribute("style","display:none;");
         submitInitialBtn.setAttribute("style", "display:none;");
 
         //Created a button and added an event listener
